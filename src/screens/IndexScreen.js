@@ -11,7 +11,7 @@ const IndexScreen = ({}) => (
   </View>
 );
 
- 
+  bla bla bla
 export default IndexScreen;
 
 const styles = StyleSheet.create({
