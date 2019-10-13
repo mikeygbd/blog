@@ -11,15 +11,15 @@ const IndexScreen = ({}) => {
   return (
   <View style={styles.container}>
     <Text>I'm Index Screen</Text>
-    <Text>{value}</Text>
+    <Text>The value is :{value}</Text>
 
   </View>
-);
+)
 }
 export default IndexScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
+  }
 });
