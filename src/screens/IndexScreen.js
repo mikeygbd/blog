@@ -4,7 +4,8 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  Button
+  Button,
+  TouchableOpacity
 } from 'react-native';
 import { Context } from '../context/BlogContext';
 import {Entypo} from  '@expo/vector-icons'
@@ -19,8 +20,11 @@ const IndexScreen = ({}) => {
     keyExtractor={(blogPost) => blogPost.title}
     renderItem={({ item }) => {
       return <View style={styles.row}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.title}>{item.title} - {item.id}</Text>
+        <TouchableOpacity onPress={() => console.log(item.id)}>
         <Entypo style={styles.icon} name="trash" />
+        </TouchableOpacity>
+
       </View>
     }}
     />
