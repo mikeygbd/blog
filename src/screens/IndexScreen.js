@@ -13,7 +13,7 @@ import {Entypo} from  '@expo/vector-icons'
 const IndexScreen = ({ navigation }) => {
   const {state, addBlogPost, deleteBlogPost } = useContext(Context)
   return (
-  <View style={styles.container}>
+    <View style={styles.container}>
     <Button title="Add Post" onPress={addBlogPost}/>
     <FlatList
     data={state}
@@ -21,21 +21,31 @@ const IndexScreen = ({ navigation }) => {
     renderItem={({ item }) => {
       return (
         <TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
-      <View style={styles.row}>
-        <Text style={styles.title}>{item.title} - {item.id}</Text>
-        <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-        <Entypo style={styles.icon} name="trash" />
+          <View style={styles.row}>
+            <Text style={styles.title}>{item.title} - {item.id}</Text>
+            <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+              <Entypo style={styles.icon} name="trash" />
+            </TouchableOpacity>
+          </View>
         </TouchableOpacity>
-      </View>
-      </TouchableOpacity>
-    )
+      )
     }}
     />
 
-  </View>
-)
+    </View>
+  )
 }
-export default IndexScreen;
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight:(
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Entypo name="plus" style={styles.plusIcon} size={30} />
+      </TouchableOpacity>
+    )
+  }
+}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -55,5 +65,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 24,
+  },
+  plusIcon: {
+    marginRight: 10
   }
+
 });
+export default IndexScreen;
