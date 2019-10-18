@@ -24,7 +24,7 @@ return (
 ShowScreen.navigationOptions= ({navigation}) => {
   return {
     headerRight: (
-      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Edit', { id: navigation.getParam('id') })}>
       <Entypo style={styles.editIcon} name="edit" size={35}/>
       </TouchableOpacity>
     )
